@@ -138,6 +138,443 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease-out;
+        }
+
+        .popup-overlay.hidden {
+            display: none;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 400px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: popupSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 24px 24px 0 24px;
+        }
+
+        .popup-close {
+            background: none;
+            border: none;
+            color: #6B7280;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .popup-close:hover {
+            background: #F3F4F6;
+            color: #374151;
+        }
+
+        .success-icon {
+            color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .failure-icon {
+            color: #EF4444;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-body {
+            padding: 16px 24px 24px 24px;
+            text-align: center;
+        }
+
+        .popup-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1F2937;
+        }
+
+        .popup-body p {
+            color: #6B7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .popup-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .popup-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 120px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-btn.primary {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+            color: white;
+        }
+
+        .popup-btn.primary:hover {
+            background: linear-gradient(135deg, #2563EB, #1E3A8A);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .popup-btn.secondary {
+            background: #F3F4F6;
+            color: #374151;
+            border: 1px solid #D1D5DB;
+        }
+
+        .popup-btn.secondary:hover {
+            background: #E5E7EB;
+            color: #1F2937;
+        }
+
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popupSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        @media (max-width: 640px) {
+            .popup-content {
+                margin: 16px;
+                max-width: calc(100% - 32px);
+            }
+            
+            .popup-actions {
+                flex-direction: column;
+            }
+            
+            .popup-btn {
+                width: 100%;
+            }
+        }
+
+        /* Locations Popup Specific Styles */
+        .locations-icon {
+            color: #3B82F6;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .locations-list {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .location-item:hover {
+            background: #EEF2FF;
+            border-color: #3B82F6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+
+        .location-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 4px;
+        }
+
+        .location-status {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin: 0;
+        }
+
+        .location-status.available {
+            color: #059669;
+            font-weight: 500;
+        }
+
+        .location-icon {
+            color: #3B82F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .location-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .locations-list {
+                gap: 12px;
+            }
+        }
+
+        /* Blog Modal Styles */
+        .blog-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease-out;
+        }
+
+        .blog-modal.hidden {
+            display: none;
+        }
+
+        .blog-content {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: blogSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .blog-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+            color: white;
+            padding: 24px;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+        }
+
+        .blog-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .blog-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .blog-body {
+            padding: 32px;
+            line-height: 1.8;
+        }
+
+        .blog-body h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .blog-body .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .blog-body .blog-category {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-body .blog-date {
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        .blog-body p {
+            margin-bottom: 16px;
+            color: #374151;
+        }
+
+        .blog-body h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .blog-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .blog-body ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .blog-body li {
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .blog-body .highlight-box {
+            background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+            border-left: 4px solid #3B82F6;
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .blog-cta {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .blog-cta h3 {
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .blog-cta a {
+            color: #FDE68A;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        @keyframes blogSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .blog-content {
+                margin: 16px;
+                max-width: calc(100% - 32px);
+                border-radius: 12px;
+            }
+            
+            .blog-header {
+                padding: 16px;
+                border-radius: 12px 12px 0 0;
+            }
+            
+            .blog-body {
+                padding: 20px;
+            }
+            
+            .blog-body h1 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -1201,7 +1638,7 @@
                                     <path d="M12 2L14 8H20L16 12L18 18L12 15L6 18L8 12L4 8H10L12 2Z" fill="#6B7280" stroke="#6B7280" stroke-width="1"/>
                                 </svg>
                             </div>
-                            <select required class="w-full pl-9 pr-7 py-2 text-sm rounded-md text-gray-800 bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 appearance-none shadow-sm">
+                            <select name="service_type" required class="w-full pl-9 pr-7 py-2 text-sm rounded-md text-gray-800 bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 appearance-none shadow-sm">
                                 <option value="">Choose Service (What treatment do you need?)</option>
                                 <option value="sports">🏃‍♂️ Sports Injury (e.g., knee pain, muscle strain)</option>
                                 <option value="ortho">🦴 Joint Problems (e.g., back pain, arthritis)</option>
@@ -1249,6 +1686,56 @@
                                 </svg>
                             </div>
                             <input type="date" name="appointment_date" required min="" placeholder="Select Appointment Date" class="w-full pl-9 pr-2.5 py-2 text-sm rounded-md text-gray-800 bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 shadow-sm">
+                        </div>
+                        
+                        <!-- Time Slot Selection -->
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none z-10">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="#6B7280" stroke-width="1.5" fill="none"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="#6B7280" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <select name="appointment_time" required class="w-full pl-9 pr-7 py-2 text-sm rounded-md text-gray-800 bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 appearance-none shadow-sm">
+                                <option value="">Choose Preferred Time (When would you like to visit?)</option>
+                                <optgroup label="🌅 Morning Slots">
+                                    <option value="09:30">9:30 AM - Available</option>
+                                    <option value="10:00">10:00 AM - Available</option>
+                                    <option value="10:30">10:30 AM - Available</option>
+                                    <option value="11:00">11:00 AM - Available</option>
+                                    <option value="11:30">11:30 AM - Available</option>
+                                </optgroup>
+                                <optgroup label="🌞 Afternoon Slots">
+                                    <option value="12:00">12:00 PM - Available</option>
+                                    <option value="12:30">12:30 PM - Available</option>
+                                    <option value="13:00">1:00 PM - Available</option>
+                                    <option value="13:30">1:30 PM - Available</option>
+                                    <option value="14:00">2:00 PM - Available</option>
+                                    <option value="14:30">2:30 PM - Available</option>
+                                    <option value="15:00">3:00 PM - Available</option>
+                                    <option value="15:30">3:30 PM - Available</option>
+                                    <option value="16:00">4:00 PM - Available</option>
+                                    <option value="16:30">4:30 PM - Available</option>
+                                </optgroup>
+                                <optgroup label="🌆 Evening Slots">
+                                    <option value="17:00">5:00 PM - Available</option>
+                                    <option value="17:30">5:30 PM - Available</option>
+                                    <option value="18:00">6:00 PM - Available</option>
+                                    <option value="18:30">6:30 PM - Available</option>
+                                    <option value="19:00">7:00 PM - Available</option>
+                                    <option value="19:30">7:30 PM - Available</option>
+                                    <option value="20:00">8:00 PM - Last Slot</option>
+                                </optgroup>
+                                <optgroup label="💡 Flexible Options">
+                                    <option value="flexible">🕐 Any Available Time (I'm flexible)</option>
+                                    <option value="urgent">⚡ Urgent/ASAP (Emergency priority)</option>
+                                </optgroup>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
                         
                         <div class="relative">
@@ -1631,7 +2118,7 @@
                             </svg>
                             Check Here for Inquiry
                         </button>
-                        <a href="#locations" onclick="scrollToSection('locations')" class="inline-flex items-center bg-white border-2 border-teal-600 text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300 transform hover:scale-105">
+                        <a href="#" onclick="showLocationsPopup(); return false;" class="inline-flex items-center bg-white border-2 border-teal-600 text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300 transform hover:scale-105">
                             � View Locations
                         </a>
                     </div>
@@ -1973,6 +2460,52 @@
             mobileMenu.classList.toggle('hidden');
         }
 
+        // Popup utility functions
+        function showPopup(popupId) {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Focus trap for accessibility
+                const focusableElements = popup.querySelectorAll('button, a, input, textarea, select');
+                if (focusableElements.length > 0) {
+                    focusableElements[0].focus();
+                }
+            }
+        }
+
+        function hidePopup(popupId) {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close popup when clicking outside the content
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('popup-overlay')) {
+                const popupId = event.target.id;
+                hidePopup(popupId);
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const visiblePopups = document.querySelectorAll('.popup-overlay:not(.hidden)');
+                visiblePopups.forEach(popup => {
+                    hidePopup(popup.id);
+                });
+            }
+        });
+
+        // Function to show locations popup
+        function showLocationsPopup() {
+            showPopup('locationsPopup');
+        }
+
         function handleBooking(event) {
             event.preventDefault();
             const form = event.target;
@@ -1992,6 +2525,7 @@
                 service_type: form.querySelector('select[name="service_type"] option:checked')?.textContent || formData.get('service_type'),
                 clinic_location: form.querySelector('select[name="clinic_location"] option:checked')?.textContent || formData.get('clinic_location'),
                 appointment_date: formData.get('appointment_date'),
+                appointment_time: form.querySelector('select[name="appointment_time"] option:checked')?.textContent || formData.get('appointment_time'),
                 problem_description: formData.get('problem_description'),
                 submission_date: new Date().toLocaleDateString(),
                 submission_time: new Date().toLocaleTimeString()
@@ -2001,9 +2535,25 @@
             emailjs.send('service_o6cmh4h', 'template_ejjl50m', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
-                    // Show success message
-                    button.innerHTML = 'Booking Submitted! ✓';
-                    button.style.backgroundColor = '#10B981';
+                    
+                    // Reset button state
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                    // Show success popup
+                    showPopup('successPopup');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Reinitialize date picker after reset
+                    const dateInput = form.querySelector('input[type="date"]');
+                    if (dateInput) {
+                        const today = new Date();
+                        const tomorrow = new Date(today);
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        dateInput.value = tomorrow.toISOString().split('T')[0];
+                    }
                     
                     // Send confirmation email to user if email provided
                     if (templateParams.user_email) {
@@ -2016,33 +2566,15 @@
                             });
                     }
                     
-                    setTimeout(() => {
-                        button.innerHTML = originalText;
-                        button.style.backgroundColor = '';
-                        button.disabled = false;
-                        form.reset();
-                        
-                        // Reinitialize date picker after reset
-                        const dateInput = form.querySelector('input[type="date"]');
-                        if (dateInput) {
-                            const today = new Date();
-                            const tomorrow = new Date(today);
-                            tomorrow.setDate(tomorrow.getDate() + 1);
-                            dateInput.value = tomorrow.toISOString().split('T')[0];
-                        }
-                    }, 3000);
-                    
                 }, function(error) {
                     console.log('FAILED...', error);
-                    // Show error message
-                    button.innerHTML = 'Failed! Please call us: +91 8850191647';
-                    button.style.backgroundColor = '#EF4444';
                     
-                    setTimeout(() => {
-                        button.innerHTML = originalText;
-                        button.style.backgroundColor = '';
-                        button.disabled = false;
-                    }, 5000);
+                    // Reset button state
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                    // Show failure popup
+                    showPopup('failurePopup');
                 });
         }
 
@@ -2081,19 +2613,185 @@
             const blogContent = {
                 'shockwave-therapy': {
                     title: 'Shockwave Therapy: Revolutionary Treatment for Chronic Pain',
-                    content: 'Shockwave therapy uses acoustic waves to stimulate healing in chronic conditions:\n\n• Plantar fasciitis\n• Tennis elbow\n• Calcific shoulder tendinitis\n• Chronic Achilles tendinopathy\n• Shoulder impingement syndrome\n\nHow it works:\n• High-energy sound waves penetrate tissue\n• Stimulates blood flow and metabolism\n• Breaks down scar tissue and calcifications\n• Promotes tissue regeneration and healing\n• Reduces pain and inflammation\n\nTreatment benefits:\n• Non-invasive and drug-free\n• Minimal side effects\n• Faster healing times\n• Long-lasting results\n• Alternative to surgery\n\nTypically requires 3-5 sessions spaced 1 week apart for optimal results. Most patients experience significant improvement within 2-3 months.'
+                    category: 'TREATMENT',
+                    date: '15 August 2025',
+                    author: 'Dr. Parvathi PT',
+                    content: `
+                        <p>Shockwave therapy uses acoustic waves to stimulate healing in chronic conditions. This innovative treatment has revolutionized pain management for various musculoskeletal disorders.</p>
+                        
+                        <h2>Conditions Treated</h2>
+                        <ul>
+                            <li>Plantar fasciitis</li>
+                            <li>Tennis elbow</li>
+                            <li>Calcific shoulder tendinitis</li>
+                            <li>Chronic Achilles tendinopathy</li>
+                            <li>Shoulder impingement syndrome</li>
+                        </ul>
+                        
+                        <h2>How It Works</h2>
+                        <ul>
+                            <li>High-energy sound waves penetrate tissue</li>
+                            <li>Stimulates blood flow and metabolism</li>
+                            <li>Breaks down scar tissue and calcifications</li>
+                            <li>Promotes tissue regeneration and healing</li>
+                            <li>Reduces pain and inflammation</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h3>Treatment Benefits</h3>
+                            <ul>
+                                <li>Non-invasive and drug-free</li>
+                                <li>Minimal side effects</li>
+                                <li>Faster healing times</li>
+                                <li>Long-lasting results</li>
+                                <li>Alternative to surgery</li>
+                            </ul>
+                        </div>
+                        
+                        <p>Typically requires 3-5 sessions spaced 1 week apart for optimal results. Most patients experience significant improvement within 2-3 months.</p>
+                        
+                        <div class="blog-cta">
+                            <h3>Experience Shockwave Therapy</h3>
+                            <p>Ready to try this revolutionary treatment? <a href="#contact">Book your consultation</a> with our expert physiotherapists.</p>
+                        </div>
+                    `
                 },
                 'technology': {
-                    title: 'Advanced Technology in Modern Physiotherapy',
-                    content: 'Technology is revolutionizing physiotherapy, making treatments more precise and effective:\n\n🔬 DIAGNOSTIC TECHNOLOGY:\n• 3D movement analysis systems\n• Ultrasound imaging for real-time tissue assessment\n• Pressure mapping for gait analysis\n• EMG biofeedback for muscle activation\n\n⚡ TREATMENT INNOVATIONS:\n• Laser therapy for tissue healing\n• Electrical stimulation devices\n• Pneumatic compression therapy\n• Virtual reality for pain management\n• Robotic-assisted rehabilitation\n\n📱 DIGITAL HEALTH:\n• Wearable sensors for movement tracking\n• Mobile apps for exercise compliance\n• Telehealth consultations\n• AI-powered treatment planning\n\n🎯 BENEFITS:\n• More accurate diagnoses\n• Personalized treatment plans\n• Objective progress tracking\n• Enhanced patient engagement\n• Improved outcomes\n\nAt Renee Physio Clinics, we integrate the latest technology with traditional hands-on care for optimal results.'
+                    title: 'Mobile Phone Radiation and the Nervous System – Can Physiotherapy Help?',
+                    category: 'TECHNOLOGY',
+                    date: '13 August 2025',
+                    author: 'Dr. Madhu PT',
+                    content: `
+                        <p>In today's digital age, mobile phones are an inseparable part of our daily lives. From calls and messages to social media and online work, we spend hours each day holding, scrolling, and leaning towards our devices. While mobile technology offers convenience, constant exposure to mobile phone radiation and poor posture during usage can significantly affect our nervous system and overall health.</p>
+                        
+                        <p>At Renee Physio Clinics, we often see patients with symptoms linked to prolonged phone use — headaches, tingling in the hands, neck pain, and even postural imbalances. Understanding the effects of radiation and body mechanics is key to prevention and recovery.</p>
+                        
+                        <h2>Mobile Phone Radiation – What Is It?</h2>
+                        <p>Mobile phones emit radiofrequency (RF) radiation, a form of non-ionizing electromagnetic radiation. While it's different from harmful ionizing radiation (like X-rays), prolonged exposure is still a concern, especially when phones are kept close to the head or body for long durations.</p>
+                        
+                        <p>Research suggests that RF radiation may influence nerve cell function, blood flow to the brain, and nerve signaling. Combined with the physical strain from poor posture during phone use, the nervous system can experience both physiological and mechanical stress.</p>
+                        
+                        <h2>How Mobile Phone Radiation Affects the Nervous System</h2>
+                        <ul>
+                            <li><strong>Headaches & Migraines</strong> – Increased heat and altered nerve signaling can trigger frequent headaches.</li>
+                            <li><strong>Numbness or Tingling</strong> – Prolonged holding of the phone can compress nerves in the neck, shoulders, and wrists.</li>
+                            <li><strong>Sleep Disturbances</strong> – Radiation and screen light can affect the brain's melatonin production, disrupting sleep patterns.</li>
+                            <li><strong>Reduced Concentration</strong> – Constant low-level exposure may interfere with cognitive processing.</li>
+                            <li><strong>Neck and Upper Back Pain</strong> – "Tech neck" posture strains the cervical spine and affects nerve roots.</li>
+                        </ul>
+                        
+                        <h2>The Posture Problem – A Hidden Culprit</h2>
+                        <p>Even if radiation risks are debated, poor posture is an undeniable problem. Bending the head forward to look at a phone increases the load on the cervical spine from 5 kg to over 25 kg. Over time, this leads to:</p>
+                        
+                        <ul>
+                            <li>Nerve compression (cervical radiculopathy)</li>
+                            <li>Muscle tightness and stiffness</li>
+                            <li>Tingling or weakness in arms and hands</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h3>How Physiotherapy Helps in Recovery and Prevention</h3>
+                            <p>Physiotherapy addresses both nerve health and postural alignment. At Renee Physio Clinics, our approach includes:</p>
+                        </div>
+                        
+                        <h3>1. Postural Correction Therapy</h3>
+                        <ul>
+                            <li>Ergonomic advice for mobile phone and laptop use</li>
+                            <li>Strengthening exercises for neck, shoulder, and upper back muscles</li>
+                        </ul>
+                        
+                        <h3>2. Nerve Mobilization Techniques</h3>
+                        <ul>
+                            <li>Gentle manual therapy to improve nerve glide and reduce compression</li>
+                        </ul>
+                        
+                        <h3>3. Pain Relief Modalities</h3>
+                        <ul>
+                            <li>Shockwave therapy, ultrasound, or electrical stimulation to ease nerve-related pain</li>
+                        </ul>
+                        
+                        <h3>4. Cervical Spine Stabilization</h3>
+                        <ul>
+                            <li>Exercises to strengthen deep neck flexors and restore normal spinal curves</li>
+                        </ul>
+                        
+                        <h3>5. Relaxation & Stress Reduction</h3>
+                        <ul>
+                            <li>Breathing exercises and stretching to calm the nervous system and improve circulation</li>
+                        </ul>
+                        
+                        <h2>Physiotherapy for Radiation-Induced Discomfort – What to Expect</h2>
+                        <ul>
+                            <li><strong>Initial Assessment</strong> – Detailed evaluation of symptoms, posture, and nerve function</li>
+                            <li><strong>Customized Program</strong> – Combination of manual therapy, exercise, and lifestyle guidance</li>
+                            <li><strong>Education</strong> – Tips for safe phone usage, such as using hands-free devices, keeping calls short, and taking regular breaks</li>
+                        </ul>
+                        
+                        <h2>Quick Tips to Protect Your Nervous System from Mobile Phone Impact</h2>
+                        <ul>
+                            <li>Use speaker mode or wired earphones instead of holding the phone to your head</li>
+                            <li>Maintain phone at eye level to avoid neck bending</li>
+                            <li>Follow the 20-20-20 rule – every 20 minutes, take a 20-second break and look 20 feet away</li>
+                            <li>Limit screen time before bed to improve sleep quality</li>
+                        </ul>
+                        
+                        <h2>Conclusion</h2>
+                        <p>While mobile phones are essential, it's important to be aware of their potential impact on our nervous system. Both radiation exposure and poor posture can cause long-term nerve and muscle problems. Physiotherapy provides a safe, drug-free way to restore nerve function, relieve pain, and improve posture — helping you live healthier in the digital era.</p>
+                        
+                        <div class="blog-cta">
+                            <h3>📞 Protect Your Nervous System Today</h3>
+                            <p>Call Renee Physio Clinics today to book your posture and nerve health assessment. Your nervous system deserves better care — and we're here to help. <a href="tel:+918850191647">+91 8850191647</a></p>
+                        </div>
+                    `
                 }
             };
             
             const blog = blogContent[blogId];
             if (blog) {
-                alert(`${blog.title}\n\n${blog.content}\n\n- Written by our expert physiotherapists at Renee Physio Clinics`);
+                showBlogModal(blog);
             }
         }
+        
+        function showBlogModal(blog) {
+            const modal = document.getElementById('blogModal');
+            const title = document.getElementById('blogModalTitle');
+            const content = document.getElementById('blogModalBody');
+            
+            title.textContent = blog.title;
+            content.innerHTML = `
+                <h1>${blog.title}</h1>
+                <div class="blog-meta">
+                    <span class="blog-category">${blog.category}</span>
+                    <span class="blog-date">${blog.date}</span>
+                    <span class="blog-date">By ${blog.author}</span>
+                </div>
+                ${blog.content}
+            `;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeBlogModal() {
+            const modal = document.getElementById('blogModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('blogModal');
+            if (event.target === modal) {
+                closeBlogModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeBlogModal();
+            }
+        });
 
         // Counter animation function
         function animateCounters() {
@@ -2138,8 +2836,8 @@
 
         // Business Inquiry Modal Functions
         function openInquiryModal() {
-            document.getElementById('inquiryModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            // Open Google Form in a new tab
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSer6cTysAoIvQZoSh9fE_DUMdduwbR_qOGvGcqot3EM0FaWuw/viewform?usp=dialog', '_blank');
         }
 
         function closeInquiryModal() {
@@ -2356,5 +3054,160 @@
             });
         });
     </script>
+
+    <!-- Popup Modals -->
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup-overlay hidden">
+        <div class="popup-content success">
+            <div class="popup-header">
+                <div class="success-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <button class="popup-close" onclick="hidePopup('successPopup')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="popup-body">
+                <h3>Appointment Booked Successfully!</h3>
+                <p>Your appointment has been confirmed. We'll contact you shortly to confirm the details.</p>
+                <div class="popup-actions">
+                    <button class="popup-btn primary" onclick="hidePopup('successPopup')">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Failure Popup -->
+    <div id="failurePopup" class="popup-overlay hidden">
+        <div class="popup-content failure">
+            <div class="popup-header">
+                <div class="failure-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                        <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <button class="popup-close" onclick="hidePopup('failurePopup')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="popup-body">
+                <h3>Booking Failed</h3>
+                <p>We couldn't process your appointment booking. Please try again or call us directly.</p>
+                <div class="popup-actions">
+                    <button class="popup-btn secondary" onclick="hidePopup('failurePopup')">Try Again</button>
+                    <a href="tel:+918850191647" class="popup-btn primary">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Locations Popup -->
+    <div id="locationsPopup" class="popup-overlay hidden">
+        <div class="popup-content locations">
+            <div class="popup-header">
+                <div class="locations-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <button class="popup-close" onclick="hidePopup('locationsPopup')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="popup-body">
+                <h3>Franchise Locations Available</h3>
+                <p>Choose from our available franchise opportunities across South India:</p>
+                <div class="locations-list">
+                    <div class="location-item">
+                        <div class="location-info">
+                            <h4>South Bangalore</h4>
+                            <p class="location-status available">Many open opportunities at present</p>
+                        </div>
+                        <div class="location-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11l3 3 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-info">
+                            <h4>Mysore</h4>
+                            <p class="location-status">Premium location available</p>
+                        </div>
+                        <div class="location-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-info">
+                            <h4>Chennai</h4>
+                            <p class="location-status">Expanding to Tamil Nadu</p>
+                        </div>
+                        <div class="location-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-info">
+                            <h4>Other Locations</h4>
+                            <p class="location-status">Interested in a different city?</p>
+                        </div>
+                        <div class="location-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-actions">
+                    <button class="popup-btn primary" onclick="openInquiryModal(); hidePopup('locationsPopup')">Inquire Now</button>
+                    <button class="popup-btn secondary" onclick="hidePopup('locationsPopup')">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="blog-modal hidden">
+        <div class="blog-content">
+            <div class="blog-header">
+                <div>
+                    <h2 id="blogModalTitle" class="text-xl font-bold text-white"></h2>
+                </div>
+                <button class="blog-close" onclick="closeBlogModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="blog-body" id="blogModalBody">
+                <!-- Blog content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985a49bd84c1418c',t:'MTc1ODk2ODYzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
