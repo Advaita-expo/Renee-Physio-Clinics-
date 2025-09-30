@@ -12,7 +12,6 @@
         }
         
         body {
-        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             letter-spacing: -0.01em;
@@ -107,18 +106,90 @@
             50% { transform: translateY(-20px) rotate(180deg); }
         }
         
+        /* Simple and reliable dot animation */
+        .dot-pulse {
+            width: 12px;
+            height: 12px;
+            background: #10B981;
+            border-radius: 50%;
+            display: inline-block;
+            animation: dotPulse 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes dotPulse {
+            0%, 80%, 100% { 
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            40% { 
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+        
         .pulse-dot {
             width: 12px;
             height: 12px;
             background: #10B981;
             border-radius: 50%;
-            animation: pulse-dot 2s infinite;
+            display: inline-block;
+            animation: pulse-dot 2s infinite ease-in-out;
+            -webkit-animation: pulse-dot 2s infinite ease-in-out;
+            -moz-animation: pulse-dot 2s infinite ease-in-out;
         }
         
         @keyframes pulse-dot {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+            0% { 
+                transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
+            50% { 
+                transform: scale(1.5); 
+                opacity: 0.5; 
+                background: #34D399;
+            }
+            100% { 
+                transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
+        }
+        
+        @-webkit-keyframes pulse-dot {
+            0% { 
+                -webkit-transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
+            50% { 
+                -webkit-transform: scale(1.5); 
+                opacity: 0.5; 
+                background: #34D399;
+            }
+            100% { 
+                -webkit-transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
+        }
+        
+        @-moz-keyframes pulse-dot {
+            0% { 
+                -moz-transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
+            50% { 
+                -moz-transform: scale(1.5); 
+                opacity: 0.5; 
+                background: #34D399;
+            }
+            100% { 
+                -moz-transform: scale(1); 
+                opacity: 1; 
+                background: #10B981;
+            }
         }
         
         .pulse-animation {
@@ -589,6 +660,13 @@
                     <div>
                         <span class="font-bold text-gray-800 text-xl">Renee Physio</span>
                         <div class="text-xs text-teal-600 font-medium">Clinics</div>
+                        <!-- Award Badge -->
+                        <div class="flex items-center mt-1">
+                            <svg class="w-3 h-3 text-amber-600 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span class="text-xs text-amber-700 font-semibold">Karnataka Vaidya Vibhushan 2024</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -597,8 +675,9 @@
                     <a href="#home" onclick="scrollToSection('home')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Home</a>
                     <a href="#about" onclick="scrollToSection('about')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">About</a>
                     <a href="#expertise" onclick="scrollToSection('expertise')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Services</a>
-                    <a href="#equipment" onclick="scrollToSection('equipment')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Equipment</a>
+                    <a href="#awards" onclick="scrollToSection('awards')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Awards</a>
                     <a href="#testimonials" onclick="scrollToSection('testimonials')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Reviews</a>
+                    <a href="#youtube" onclick="scrollToSection('youtube')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Videos</a>
                     <a href="#gallery" onclick="scrollToSection('gallery')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Gallery</a>
                     <a href="#contact" onclick="scrollToSection('contact')" class="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-300">Contact</a>
                 </div>
@@ -622,8 +701,12 @@
                     <a href="#home" onclick="scrollToSection('home'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Home</a>
                     <a href="#about" onclick="scrollToSection('about'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">About</a>
                     <a href="#expertise" onclick="scrollToSection('expertise'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Services</a>
+                    <a href="#awards" onclick="scrollToSection('awards'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Awards</a>
                     <a href="#equipment" onclick="scrollToSection('equipment'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Equipment</a>
                     <a href="#testimonials" onclick="scrollToSection('testimonials'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Reviews</a>
+                    <a href="#instagram" onclick="scrollToSection('instagram'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Instagram</a>
+                    <a href="#youtube" onclick="scrollToSection('youtube'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Videos</a>
+                    <a href="#blog" onclick="scrollToSection('blog'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Blog</a>
                     <a href="#gallery" onclick="scrollToSection('gallery'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Gallery</a>
                     <a href="#contact" onclick="scrollToSection('contact'); toggleMobileMenu()" class="text-gray-700 hover:text-teal-600 font-medium py-2 transition-colors duration-300">Contact</a>
                     <button onclick="scrollToSection('contact'); toggleMobileMenu()" class="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2.5 rounded-full font-semibold hover:from-blue-700 hover:to-teal-700 transition-all duration-300 mt-2 shadow-lg">
@@ -666,10 +749,13 @@
                 </div>
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-2xl">Renee Physio Clinics</h1>
                 <p class="text-2xl md:text-3xl font-light mb-2 drop-shadow-lg">Revive | Restore | Renew</p>
-                <div class="flex justify-center space-x-4 mt-6">
-                    <div class="pulse-dot"></div>
-                    <div class="pulse-dot" style="animation-delay: 0.5s;"></div>
-                    <div class="pulse-dot" style="animation-delay: 1s;"></div>
+                <div class="flex justify-center space-x-3 mt-6">
+                    <div class="w-3 h-3 bg-green-500 rounded-full" 
+                         style="animation: bounce 1.4s infinite; animation-delay: 0s;"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full" 
+                         style="animation: bounce 1.4s infinite; animation-delay: 0.2s;"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full" 
+                         style="animation: bounce 1.4s infinite; animation-delay: 0.4s;"></div>
                 </div>
             </div>
             
@@ -693,7 +779,7 @@
     <!-- About Us Section -->
     <section id="about" class="py-12 px-4 bg-white">
         <div class="max-w-6xl mx-auto fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Meet Our Founders</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Meet Our Founders</h2>
             
             <!-- Founders Introduction -->
             <div class="text-center mb-12">
@@ -843,7 +929,7 @@
                     <div class="grid md:grid-cols-3 gap-4 mb-6">
                         <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
                             <div class="text-2xl font-bold text-yellow-300 mb-1">
-                                <span class="counter" data-target="2000">0</span>+
+                                <span class="counter" data-target="10000">0</span>+
                             </div>
                             <p class="text-blue-100 text-sm">Patients Treated</p>
                         </div>
@@ -869,6 +955,96 @@
                         <footer class="text-blue-200 font-semibold text-sm">
                             — Dr. N.R. Parvathi & Dr. V. Madhu
                         </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition Section -->
+    <section id="awards" class="py-12 px-4 bg-gray-50 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Compact Header Design -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-gray-900 mb-4 tracking-tight">
+                    Awards & Recognition
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Honored for exceptional contributions to physiotherapy and healthcare excellence
+                </p>
+            </div>
+            
+            <!-- Compact Award Cards -->
+            <div class="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Karnataka Award - Compact -->
+                <div class="group relative">
+                    <!-- Simple Year Badge -->
+                    <div class="absolute -top-2 -right-2 z-30">
+                        <div class="bg-gray-800 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg">
+                            2024
+                        </div>
+                    </div>
+                    
+                    <!-- Compact Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1 relative overflow-hidden">
+                        <!-- Award Content -->
+                        <div class="text-center">
+                            <!-- Compact Icon -->
+                            <div class="mb-4">
+                                <div class="bg-gray-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto shadow-xl">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Compact Award Details -->
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Karnataka Vaidya Vibhushan</h3>
+                            <p class="text-gray-700 font-semibold text-sm mb-1">Government of Karnataka</p>
+                            <p class="text-gray-600 text-sm mb-4">Excellence in Healthcare Services</p>
+                            
+                            <!-- Compact Badge -->
+                            <div class="inline-flex items-center bg-gray-100 rounded-full px-3 py-1">
+                                <div class="bg-gray-600 rounded-full w-2 h-2 mr-2"></div>
+                                <span class="text-gray-800 font-medium text-xs uppercase">State Recognition</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portea Award - Compact -->
+                <div class="group relative">
+                    <!-- Simple Achievement Badge -->
+                    <div class="absolute -top-2 -right-2 z-30">
+                        <div class="bg-gray-800 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg">
+                            3 Years
+                        </div>
+                    </div>
+                    
+                    <!-- Compact Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1 relative overflow-hidden">
+                        <!-- Award Content -->
+                        <div class="text-center">
+                            <!-- Compact Icon -->
+                            <div class="mb-4">
+                                <div class="bg-gray-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto shadow-xl">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Compact Award Details -->
+                            <h3 class="font-bold text-xl text-gray-900 mb-2">Best Physiotherapist</h3>
+                            <p class="text-gray-700 font-semibold text-sm mb-1">Portea Home Health Services</p>
+                            <p class="text-gray-600 text-sm mb-4">2016 - 2018</p>
+                            
+                            <!-- Compact Badge -->
+                            <div class="inline-flex items-center bg-gray-100 rounded-full px-3 py-1">
+                                <div class="bg-gray-600 rounded-full w-2 h-2 mr-2"></div>
+                                <span class="text-gray-800 font-medium text-xs uppercase">Consecutive Excellence</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1557,7 +1733,7 @@
     </div>
 
     <!-- Appointment Booking Section -->
-    <section id="contact" class="py-12 px-4 gradient-bg text-white">
+    <section id="contact" class="py-12 px-4 bg-gray-900 text-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold mb-3">Book Your Appointment</h2>
@@ -2127,6 +2303,122 @@
         </div>
     </section>
 
+    <!-- YouTube Channel Section -->
+    <section id="youtube" class="py-8 px-4 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+                    🎥 Watch Our YouTube Channel
+                </h2>
+                <p class="text-gray-600 mb-6">Expert physiotherapy tips, exercise demonstrations, and health insights</p>
+                <a href="https://youtube.com/@reneephysioclinics?si=Ds3a9athpKMOSTlO" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    Subscribe to Our Channel
+                </a>
+            </div>
+
+            <!-- Featured Videos -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- Video 1: First YouTube Video -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <div class="aspect-video">
+                            <iframe 
+                                src="https://www.youtube.com/embed/T_mSvzuKNWY" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="w-full h-full rounded-t-xl">
+                            </iframe>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Physical Therapy Exercises</h3>
+                        <p class="text-gray-600 text-sm mb-3">Learn proper exercise techniques for faster recovery and pain relief with expert guidance.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="https://youtu.be/T_mSvzuKNWY?si=6AwCDIjmakDQDUDA" target="_blank" class="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-300">
+                                Watch Full Video →
+                            </a>
+                            <span class="text-xs text-gray-500">Renee Physio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2: Second YouTube Video -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <div class="aspect-video">
+                            <iframe 
+                                src="https://www.youtube.com/embed/NCSb3H4BwLQ" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="w-full h-full rounded-t-xl">
+                            </iframe>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                            POPULAR
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Health & Wellness Tips</h3>
+                        <p class="text-gray-600 text-sm mb-3">Professional advice for maintaining optimal health and preventing injuries from our experts.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="https://youtu.be/NCSb3H4BwLQ?si=TJnweDbieN4Id8qX" target="_blank" class="text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors duration-300">
+                                Watch Full Video →
+                            </a>
+                            <span class="text-xs text-gray-500">Renee Physio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Channel Stats -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-md max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <svg class="w-8 h-8 text-red-500 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <div class="text-lg font-bold text-gray-800">Expert Content</div>
+                        <p class="text-gray-600 text-sm">Professional physiotherapy guidance</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-8 h-8 text-orange-500 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <div class="text-lg font-bold text-gray-800">Regular Updates</div>
+                        <p class="text-gray-600 text-sm">New videos every week</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-8 h-8 text-yellow-600 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        </svg>
+                        <div class="text-lg font-bold text-gray-800">Free Education</div>
+                        <p class="text-gray-600 text-sm">Learn at your own pace</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Stay Updated with Latest Videos!</h3>
+                    <p class="text-gray-600 text-sm mb-4">Get notified about new exercise tutorials, health tips, and treatment insights</p>
+                    <a href="https://youtube.com/@reneephysioclinics?si=Ds3a9athpKMOSTlO" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 text-white px-5 py-2 rounded-full font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        Visit Our YouTube Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Blog Section -->
     <section id="blog" class="py-16 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
@@ -2134,59 +2426,7 @@
             <p class="text-center text-gray-600 mb-12">Expert insights on physiotherapy, wellness, and recovery</p>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Blog Post 1: Shockwave Therapy -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                    <div class="bg-gradient-to-br from-blue-600 to-purple-700 h-64 flex items-center justify-center relative overflow-hidden">
-                        <!-- Professional SVG Graphic for Shockwave Therapy -->
-                        <svg width="200" height="150" viewBox="0 0 200 150" class="absolute">
-                            <!-- Background waves -->
-                            <defs>
-                                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.3" />
-                                    <stop offset="100%" style="stop-color:#A855F7;stop-opacity:0.6" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Shockwave lines -->
-                            <g stroke="white" stroke-width="3" fill="none" opacity="0.8">
-                                <path d="M20 75 Q60 45 100 75 T180 75" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" repeatCount="indefinite"/>
-                                </path>
-                                <path d="M20 85 Q60 55 100 85 T180 85" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-10" dur="1.2s" repeatCount="indefinite"/>
-                                </path>
-                                <path d="M20 65 Q60 35 100 65 T180 65" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-10" dur="0.8s" repeatCount="indefinite"/>
-                                </path>
-                            </g>
-                            
-                            <!-- Central device -->
-                            <rect x="85" y="60" width="30" height="30" rx="5" fill="white" opacity="0.9"/>
-                            <circle cx="100" cy="75" r="8" fill="#3B82F6"/>
-                            <circle cx="100" cy="75" r="4" fill="white">
-                                <animate attributeName="r" values="4;6;4" dur="1.5s" repeatCount="indefinite"/>
-                            </circle>
-                        </svg>
-                        
-                        <!-- Floating particles -->
-                        <div class="absolute inset-0">
-                            <div class="absolute top-4 left-8 w-2 h-2 bg-white rounded-full opacity-60 animate-bounce" style="animation-delay: 0s;"></div>
-                            <div class="absolute top-12 right-12 w-1 h-1 bg-yellow-300 rounded-full opacity-80 animate-bounce" style="animation-delay: 0.5s;"></div>
-                            <div class="absolute bottom-8 left-16 w-1.5 h-1.5 bg-white rounded-full opacity-70 animate-bounce" style="animation-delay: 1s;"></div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-blue-600 font-semibold mb-2">ADVANCED THERAPY</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Shockwave Therapy: Revolutionary Treatment for Chronic Pain</h3>
-                        <p class="text-gray-600 mb-4">Discover how this cutting-edge therapy uses acoustic waves to stimulate healing and provide relief from stubborn injuries and chronic conditions.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">Dr. Madhu PT</span>
-                            <button onclick="readBlog('shockwave-therapy')" class="text-blue-600 hover:text-blue-800 font-semibold">Read More →</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Blog Post 2: Technology -->
+                <!-- Blog Post 1: Technology -->
                 <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                     <div class="bg-gradient-to-br from-emerald-500 to-teal-600 h-64 flex items-center justify-center relative overflow-hidden">
                         <!-- Professional SVG Graphic for Technology -->
@@ -2259,6 +2499,67 @@
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-gray-500">Dr. Parvathi PT</span>
                             <button onclick="readBlog('technology')" class="text-emerald-600 hover:text-emerald-800 font-semibold">Read More →</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2: Frozen Shoulder Shockwave Therapy -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-600 h-64 flex items-center justify-center relative overflow-hidden">
+                        <!-- Professional SVG Graphic for Frozen Shoulder -->
+                        <svg width="200" height="150" viewBox="0 0 200 150" class="absolute">
+                            <!-- Shoulder joint illustration -->
+                            <defs>
+                                <radialGradient id="shoulderGrad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#F97316;stop-opacity:0.4" />
+                                </radialGradient>
+                            </defs>
+                            
+                            <!-- Shoulder socket -->
+                            <ellipse cx="100" cy="75" rx="45" ry="35" fill="white" opacity="0.9" stroke="#FCD34D" stroke-width="3"/>
+                            
+                            <!-- Shoulder ball -->
+                            <circle cx="100" cy="75" r="25" fill="white" opacity="0.8">
+                                <animate attributeName="r" values="25;28;25" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Frozen effect lines -->
+                            <g stroke="#60A5FA" stroke-width="2" fill="none" opacity="0.7">
+                                <path d="M75 50 L85 60 M85 50 L75 60" stroke="#60A5FA"/>
+                                <path d="M115 50 L125 60 M125 50 L115 60" stroke="#60A5FA"/>
+                                <path d="M75 90 L85 100 M85 90 L75 100" stroke="#60A5FA"/>
+                                <path d="M115 90 L125 100 M125 90 L115 100" stroke="#60A5FA"/>
+                            </g>
+                            
+                            <!-- Shockwave effect -->
+                            <g stroke="white" stroke-width="2" fill="none" opacity="0.6">
+                                <circle cx="100" cy="75" r="35">
+                                    <animate attributeName="r" values="35;45;35" dur="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="100" cy="75" r="40">
+                                    <animate attributeName="r" values="40;50;40" dur="1.8s" repeatCount="indefinite"/>
+                                    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="1.8s" repeatCount="indefinite"/>
+                                </circle>
+                            </g>
+                        </svg>
+                        
+                        <!-- Floating healing particles -->
+                        <div class="absolute inset-0">
+                            <div class="absolute top-6 left-12 w-2 h-2 bg-yellow-300 rounded-full opacity-80 animate-bounce" style="animation-delay: 0s;"></div>
+                            <div class="absolute top-16 right-8 w-1.5 h-1.5 bg-white rounded-full opacity-90 animate-bounce" style="animation-delay: 0.3s;"></div>
+                            <div class="absolute bottom-12 left-20 w-1 h-1 bg-orange-200 rounded-full opacity-70 animate-bounce" style="animation-delay: 0.6s;"></div>
+                            <div class="absolute bottom-6 right-16 w-2 h-2 bg-white rounded-full opacity-60 animate-bounce" style="animation-delay: 0.9s;"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-orange-600 font-semibold mb-2">SPECIALIZED TREATMENT</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Shockwave Therapy for Frozen Shoulder</h3>
+                        <p class="text-gray-600 mb-4">Learn how advanced shockwave therapy can break down adhesions and restore mobility in frozen shoulder, offering hope for pain-free movement.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Dr. Renee Sebastian</span>
+                            <button onclick="readBlog('frozen-shoulder-shockwave')" class="text-orange-600 hover:text-orange-800 font-semibold">Read More →</button>
                         </div>
                     </div>
                 </article>
@@ -2611,51 +2912,6 @@
 
         function readBlog(blogId) {
             const blogContent = {
-                'shockwave-therapy': {
-                    title: 'Shockwave Therapy: Revolutionary Treatment for Chronic Pain',
-                    category: 'TREATMENT',
-                    date: '15 August 2025',
-                    author: 'Dr. Parvathi PT',
-                    content: `
-                        <p>Shockwave therapy uses acoustic waves to stimulate healing in chronic conditions. This innovative treatment has revolutionized pain management for various musculoskeletal disorders.</p>
-                        
-                        <h2>Conditions Treated</h2>
-                        <ul>
-                            <li>Plantar fasciitis</li>
-                            <li>Tennis elbow</li>
-                            <li>Calcific shoulder tendinitis</li>
-                            <li>Chronic Achilles tendinopathy</li>
-                            <li>Shoulder impingement syndrome</li>
-                        </ul>
-                        
-                        <h2>How It Works</h2>
-                        <ul>
-                            <li>High-energy sound waves penetrate tissue</li>
-                            <li>Stimulates blood flow and metabolism</li>
-                            <li>Breaks down scar tissue and calcifications</li>
-                            <li>Promotes tissue regeneration and healing</li>
-                            <li>Reduces pain and inflammation</li>
-                        </ul>
-                        
-                        <div class="highlight-box">
-                            <h3>Treatment Benefits</h3>
-                            <ul>
-                                <li>Non-invasive and drug-free</li>
-                                <li>Minimal side effects</li>
-                                <li>Faster healing times</li>
-                                <li>Long-lasting results</li>
-                                <li>Alternative to surgery</li>
-                            </ul>
-                        </div>
-                        
-                        <p>Typically requires 3-5 sessions spaced 1 week apart for optimal results. Most patients experience significant improvement within 2-3 months.</p>
-                        
-                        <div class="blog-cta">
-                            <h3>Experience Shockwave Therapy</h3>
-                            <p>Ready to try this revolutionary treatment? <a href="#contact">Book your consultation</a> with our expert physiotherapists.</p>
-                        </div>
-                    `
-                },
                 'technology': {
                     title: 'Mobile Phone Radiation and the Nervous System – Can Physiotherapy Help?',
                     category: 'TECHNOLOGY',
@@ -2741,6 +2997,92 @@
                         <div class="blog-cta">
                             <h3>📞 Protect Your Nervous System Today</h3>
                             <p>Call Renee Physio Clinics today to book your posture and nerve health assessment. Your nervous system deserves better care — and we're here to help. <a href="tel:+918850191647">+91 8850191647</a></p>
+                        </div>
+                    `
+                },
+                'frozen-shoulder-shockwave': {
+                    title: 'Shockwave Therapy for Frozen Shoulder – A Modern Solution for Pain and Stiffness',
+                    category: 'TREATMENT',
+                    date: '30 September 2025',
+                    author: 'Dr. Renee Sebastian',
+                    content: `
+                        <p>Frozen shoulder, medically known as adhesive capsulitis, is a painful and limiting condition where the shoulder joint becomes stiff and its range of motion significantly reduces. This condition can last for months or even years, making daily activities like combing your hair, reaching overhead, or wearing clothes extremely difficult.</p>
+                        
+                        <div class="blog-highlight">
+                            <p><strong>At Renee Physio Clinics:</strong> We use advanced treatment methods, and one of the most effective techniques we offer is <strong>Shockwave Therapy</strong>. This non-invasive, evidence-based treatment is transforming how frozen shoulder is managed, helping patients get relief faster.</p>
+                        </div>
+                        
+                        <h2>What is Shockwave Therapy?</h2>
+                        <p>Shockwave therapy (ESWT – Extracorporeal Shock Wave Therapy) is a non-surgical, non-invasive treatment that uses high-energy sound waves to stimulate the body's natural healing process.</p>
+                        
+                        <h3>These waves help:</h3>
+                        <ul>
+                            <li>Break down scar tissue and adhesions in the shoulder capsule</li>
+                            <li>Improve blood flow to the affected area</li>
+                            <li>Promote regeneration of soft tissues</li>
+                            <li>Reduce chronic pain by resetting pain signals in nerves</li>
+                        </ul>
+                        
+                        <h2>How Shockwave Therapy Helps in Frozen Shoulder</h2>
+                        
+                        <h3>🎯 Pain Relief</h3>
+                        <p>The therapy stimulates nerve endings and interrupts pain signals, giving immediate relief for many patients.</p>
+                        
+                        <h3>🔨 Breaking Fibrosis</h3>
+                        <p>Frozen shoulder often involves thickening of the joint capsule; shockwaves help break down these adhesions.</p>
+                        
+                        <h3>💗 Improved Circulation</h3>
+                        <p>Increased blood flow accelerates healing and reduces inflammation.</p>
+                        
+                        <h3>⚡ Faster Recovery</h3>
+                        <p>When combined with physiotherapy exercises, shockwave therapy can speed up mobility restoration.</p>
+                        
+                        <h2>Treatment Process at Renee Physio Clinics</h2>
+                        
+                        <h3>1. Assessment</h3>
+                        <p>Our expert physiotherapists evaluate your shoulder condition, movement range, and pain level.</p>
+                        
+                        <h3>2. Shockwave Session</h3>
+                        <p>The device is applied to the affected shoulder for about 10–15 minutes, delivering targeted energy waves.</p>
+                        
+                        <h3>3. Rehabilitation Exercises</h3>
+                        <p>To maximise benefits, we pair shockwave therapy with specific stretching and strengthening exercises.</p>
+                        
+                        <h3>4. Progress Monitoring</h3>
+                        <p>Regular reassessments ensure you are improving steadily without overstraining the shoulder.</p>
+                        
+                        <h2>Benefits of Shockwave Therapy for Frozen Shoulder</h2>
+                        <ul>
+                            <li>✓ Non-surgical, no injections, no downtime</li>
+                            <li>✓ Clinically proven for chronic musculoskeletal pain</li>
+                            <li>✓ Safe, effective, and well-tolerated</li>
+                            <li>✓ Works well in combination with manual therapy</li>
+                            <li>✓ Reduces need for long-term pain medication</li>
+                        </ul>
+                        
+                        <h2>Expected Recovery Timeline</h2>
+                        <p>Many patients notice improvement within 3–5 sessions, although severe cases may need more treatments. The frozen shoulder recovery timeline depends on the stage of the condition:</p>
+                        
+                        <h3>Freezing Stage</h3>
+                        <p>Reduces pain and slows stiffness</p>
+                        
+                        <h3>Frozen Stage</h3>
+                        <p>Restores some mobility and comfort</p>
+                        
+                        <h3>Thawing Stage</h3>
+                        <p>Accelerates complete functional recovery</p>
+                        
+                        <h2>Why Choose Renee Physio Clinics for Shockwave Therapy?</h2>
+                        <ul>
+                            <li>🏆 Experienced physiotherapists with over 20 years in advanced rehabilitation</li>
+                            <li>🏅 Award-winning team with expertise in sports and chronic pain management</li>
+                            <li>⚡ State-of-the-art technology for faster results</li>
+                            <li>👤 Personalised treatment plans for each patient</li>
+                        </ul>
+                        
+                        <div class="blog-cta">
+                            <h3>✅ Take the first step towards pain-free movement!</h3>
+                            <p>📞 Call Renee Physio Clinics today to book your shockwave therapy consultation</p>
                         </div>
                     `
                 }
@@ -2886,12 +3228,23 @@
         }
 
         function followSocial(platform) {
+            const socialLinks = {
+                facebook: 'https://www.facebook.com/renee.physio.clinics',
+                instagram: 'https://www.instagram.com/renee_physio_clinics',
+                youtube: 'https://youtube.com/@reneephysioclinics?si=Ds3a9athpKMOSTlO'
+            };
+            
             const messages = {
                 facebook: 'Follow us on Facebook for daily health tips and clinic updates!',
                 instagram: 'Follow our Instagram for exercise videos and wellness inspiration!',
                 youtube: 'Subscribe to our YouTube channel for detailed physiotherapy tutorials!'
             };
-            alert(messages[platform] || 'Stay connected with us on social media!');
+            
+            if (socialLinks[platform]) {
+                window.open(socialLinks[platform], '_blank');
+            } else {
+                alert(messages[platform] || 'Stay connected with us on social media!');
+            }
         }
 
         // Video control functionality
